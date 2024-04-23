@@ -1,0 +1,94 @@
+<!--所有页面都应以 <!DOCTYPE html> 开头。 这个特殊的字符串被称为声明，并确保浏览器尝试满足行业范围的规范。-->
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <!--通过创建一个 meta 元素作为 head 元素的子元素，告诉浏览器渲染 markdown 为多种语言。-->
+    <meta charset="UTF-8">
+    <!--title 元素决定了浏览器在页面的标题栏或选项卡中显示的内容。-->
+    <title>CatPhotoApp</title>
+  </head>
+  <!-- 添加到页面的所有内容都在 body 元素内。 应该呈现到页面的所有页面内容元素都放在 body 元素中 -->
+  <body>
+    <main>
+      <h1>CatPhotoApp</h1>
+      <!-- 使用section元素与其他元素分开 -->
+      <section>
+        <h2>Cat Photos</h2>
+        <!-- TODO: Add link to cat photos -->
+        <!-- target="_blank"在新的标签页中打开链接 -->
+        <p>See more <a target="_blank" href="https://freecatphotoapp.com">cat photos</a> in our gallery.</p>
+        <a href="https://freecatphotoapp.com"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
+      </section>
+      <section>
+        <h2>Cat Lists</h2>
+        <h3>Things cats love:</h3>
+        <!-- 无序列表（ul）元素 -->
+        <ul>
+          <!-- 使用列表项（li）元素在列表中创建项目 -->
+          <li>cat nip</li>
+          <li>laser pointers</li>
+          <li>lasagna</li>
+        </ul>
+        <!-- figure 元素代表独立的内容，并允许你将图像与标题相关联。 -->
+        <figure>
+          <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/lasagna.jpg" alt="A slice of lasagna on a plate.">
+          <!-- 图像标题（figcaption）元素用于添加标题以描述 figure 元素中包含的图像。 -->
+          <figcaption>Cats <em>love</em> lasagna.</figcaption>  
+        </figure>
+        <h3>Top 3 things cats hate:</h3>
+        <!-- 有序列表（ol）的代码类似于无序列表，但有序列表中的列表项在显示时会被编号。 -->
+        <ol>
+          <li>flea treatment</li>
+          <li>thunder</li>
+          <li>other cats</li>
+        </ol>
+        <figure>
+          <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/cats.jpg" alt="Five cats looking around a field.">
+          <figcaption>Cats <strong>hate</strong> other cats.</figcaption>  
+        </figure>
+      </section>
+      <section>
+        <h2>Cat Form</h2>
+        <!-- form元素将添加一个Web表单来收集来自用户的信息，action属性指示应该将表单数据发送到哪里 -->
+        <form action="https://freecatphotoapp.com/submit-cat-photo">
+          <!-- fieldset 元素用于在 Web 表单中将相关的输入和标签组合在一起。 fieldset 元素是块级元素，这意味着它们出现在新的一行上。 -->
+          <fieldset>
+            <!-- legend 元素充当 fieldset 元素中内容的标题。 它为用户提供了有关他们应该在表单的该部分中输入什么的上下文。-->
+            <legend>Is your cat an indoor or outdoor cat?</legend>
+            <!-- input元素允许你通过多种方式从Web表单中收集数据。与img元素一样，input元素是自闭合的，并且不需要结束标签。 -->
+            <!-- 可以使用 type 属性创建多种输入。 你可以轻松创建密码字段、重置按钮或控件，让用户从他们的计算机中选择文件。type="radio"单选按钮 -->
+            <!-- 为了通过 action 属性中指定的位置访问表单的数据，你必须给文本字段一个 name 属性，并为其分配一个值来表示数据正在提交。 -->
+            <!-- label元素用于帮助将input元素的文本与input元素本身关联起来（尤其是对于屏幕阅读器等辅助技术） -->
+            <!-- 可以同时选择两个单选按钮。 为了使选择一个单选按钮自动取消选择另一个，两个按钮必须有具有相同值的 name 属性。-->
+            <!-- 如果你选择 Indoor 单选按钮并提交表单，则该按钮的表单数据基于其 name 和 value 属性 -->
+            <!-- 为了使复选框或单选按钮默认被选中，你需要为其添加 checked 属性 -->
+            <label><input id="indoor" type="radio" name="indoor-outdoor" value="indoor" checked> Indoor</label>
+            <label><input id="outdoor" type="radio" name="indoor-outdoor" value="outdoor"> Outdoor</label>
+          </fieldset>
+          <fieldset>
+            <legend>What's your cat's personality?</legend>
+            <!-- type="checkbox"复选框-->
+            <!-- 通过仅给 label 元素添加文本 Loving，并给它添加适当的 for 属性值，将文本 Loving 与复选框相关联。-->
+            <input id="loving" type="checkbox" name="personality" value="loving" checked> <label for="loving">Loving</label>
+            <input id="lazy" type="checkbox" name="personality" value="lazy"> <label for="lazy">Lazy</label>
+            <input id="energetic" type="checkbox" name="personality" value="energetic"> <label for="energetic">Energetic</label>
+          </fieldset>
+          <!-- 通过将值为 text 的 type 属性添加到 input 元素，创建一个文本字段以从用户那里获取文本输入。-->
+          <!-- placeholder占位符文本用于提示人们在输入框中输入什么样的信息。-->
+          <!-- 为了防止用户在缺少所需信息时提交你的表单，你需要将 required 属性添加到 input 元素。 无需为 required 属性设置值。-->
+          <input type="text" name="catphotourl" placeholder="cat photo URL" required>
+          <!-- 使用 button 元素创建一个可点击的按钮。 -->
+          <!-- 将值为 submit 的 type 属性添加到 button 以明确它是一个提交按钮。 -->
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    <!--页面脚本部分-->
+    <footer>
+      <p>
+        No Copyright - <a href="https://www.freecodecamp.org">freeCodeCamp.org</a>
+      </p>
+    </footer>
+  </body>
+</html>
